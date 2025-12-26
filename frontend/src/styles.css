@@ -1,0 +1,175 @@
+/* =========================
+   GLOBAL RESET & BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f7fb;
+  color: #1e293b;
+}
+
+/* =========================
+   MAIN APP LAYOUT
+========================= */
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* =========================
+   TOOLBAR (LEFT PANEL)
+========================= */
+.toolbar {
+  width: 240px;
+  background: #ffffff;
+  padding: 16px;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.toolbar h3 {
+  margin: 0 0 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.tool {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f1f3f6;
+  margin-bottom: 12px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  /* user-select: none; */
+}
+
+.tool:hover {
+  background: #e3e7ff;
+  transform: translateY(-1px);
+}
+
+
+.canvas {
+  margin-top: 0%;  /* ⬅ adjusted */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;          /* ⬅ reduced */
+  overflow: auto;
+  background: linear-gradient(135deg, #f5f7fb, #eef1f7);
+}
+
+
+/* =========================
+   PDF WRAPPER (DOCUMENT CARD)
+========================= */
+.pdf-wrapper {
+  position: relative;
+  background: #ffffff;
+  padding: 6px;          /* ⬅ reduced */
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+
+/* =========================
+   DRAGGABLE FIELD BOX
+========================= */
+.field {
+  border: 2px dashed #4f46e5;
+  background: rgba(79, 70, 229, 0.12);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: grab;
+  transition: all 0.2s ease;
+}
+
+.field:hover {
+  background: rgba(79, 70, 229, 0.18);
+  border-color: #4338ca;
+}
+
+.field:active {
+  cursor: grabbing;
+}
+
+/* =========================
+   FIELD CONTENT (INPUTS)
+========================= */
+.field input,
+.field canvas,
+.field img {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* =========================
+   COMMITTED TEXT (AFTER ENTER)
+========================= */
+.field div {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #1e293b;
+  /* user-select: none; */
+}
+
+/* =========================
+   SIGNATURE CANVAS
+========================= */
+.field canvas {
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+/* =========================
+   IMAGE PREVIEW
+========================= */
+.field img {
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+@media (max-width: 768px) {
+  .toolbar {
+    display: none;
+  }
+
+  .canvas {
+    padding: 12px;
+  }
+
+  .pdf-wrapper {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .field {
+    font-size: 12px;
+  }
+}
